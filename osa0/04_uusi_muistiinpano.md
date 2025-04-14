@@ -6,10 +6,10 @@ sequenceDiagram
     
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
-    server-->>browser: Redirect Location: /exampleapp/notes
+    server-->>browser: 302 Found 
     deactivate server
 
-    Note right of browser: The server redirects the browser and the browser makes a new GET request to /exampleapp/notes
+    Note right of browser: The server responds with "302 Found", redirects the browser and the browser makes a new GET request to the Location: /exampleapp/notes
     
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
