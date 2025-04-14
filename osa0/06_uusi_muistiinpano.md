@@ -9,4 +9,4 @@ sequenceDiagram
     server-->>browser: 201 Created
     deactivate server
 
-    Note right of browser: The server responds with "201 Created" and no redirection is needed. The page is not reloaded and JavaScript updates the notes. 
+    Note right of browser: The server responds with "201 Created" and no redirection is needed. The page is not reloaded and the JavaScript code (in the browser) updates the notes. 
