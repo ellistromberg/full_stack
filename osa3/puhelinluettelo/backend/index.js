@@ -1,6 +1,5 @@
 const express = require('express')
 const morgan = require('morgan')
-const cors = require('cors')
 const app = express()
 
 let persons = [
@@ -34,7 +33,6 @@ morgan.token('content', (request, response) => {
 })
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :content'))
-app.use(cors())
 
 app.get('/', (request, response) => {
   response.send('<h1>Phonebook</h1>')
