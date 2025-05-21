@@ -24,7 +24,6 @@ const App = () => {
   }, [])
 
   const addPerson = (event) => {
-    console.log('add person works')
     event.preventDefault()
     const person = persons.find(p => p.name === newName)
 
