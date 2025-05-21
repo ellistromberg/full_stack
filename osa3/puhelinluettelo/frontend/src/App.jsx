@@ -24,6 +24,7 @@ const App = () => {
   }, [])
 
   const addPerson = (event) => {
+    console.log('add person works')
     event.preventDefault()
     const person = persons.find(p => p.name === newName)
 
@@ -65,20 +66,32 @@ const App = () => {
           setPersons(persons.filter(p => p.id !== person.id))
         })
     } else {
+      console.log('Creating new person')
       personService
-      .create(personObject)
-      .then(returnedPerson => {
-        setPersons(persons.concat(returnedPerson))
-        setNewName('')
-        setNewNumber('')
-        setNotification(
-          `Added ${returnedPerson.name}`
-        )
-        setNotificationType('ok')
-        setTimeout(() => {
-          setNotification(null)
-        }, 5000)
-      })
+        .create(personObject)
+        .then(returnedPerson => {
+          setPersons(persons.concat(returnedPerson))
+          setNewName('')
+          setNewNumber('')
+          setNotification(
+            `Added ${returnedPerson.name}`
+          )
+          setNotificationType('ok')
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000)
+        })
+        .catch(error => {
+          setNotification(
+            error.response.data.error
+          )
+          setNotificationType('error')
+          setTimeout(() => {
+            setNotification(null)
+          }, 5000)
+          setNewName('')
+          setNewNumber('')
+        })
     }
   }
 
