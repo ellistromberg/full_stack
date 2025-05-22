@@ -4,14 +4,13 @@ import Filter from './components/Filter'
 import Countries from './components/CountryList'
 import Country from './components/Country'
 
-
 const App = () => {
   const [countries, setCountries] = useState(null)
   const [country, setCountry] = useState(null)
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    console.log('effect')
+    console.log('country data')
     axios
       .get(`https://studies.cs.helsinki.fi/restcountries/api/all`)
       .then(response => {
