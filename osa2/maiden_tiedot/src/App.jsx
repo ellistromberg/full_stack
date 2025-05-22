@@ -42,19 +42,15 @@ const App = () => {
     if (!search) {
       return null
     }
-    
     if (country) {
       return <Country country={country} />
     }
-
     if (countriesToShow.length > 10) {
       return 'Too many matches, specify another filter'
     }
-
     if (countriesToShow.length === 1) {
       return <Country country={countriesToShow[0]} />
     }
-
     return <Countries countries={countriesToShow} view={viewCountry} />
 
   }
