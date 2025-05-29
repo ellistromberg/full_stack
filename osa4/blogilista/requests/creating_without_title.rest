@@ -2,7 +2,8 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-    "author": "Etunimi Sukunimi",
-    "url": "http://blog/title",
-    "likes": 12
+    "author": "Edsger W. Dijkstra",
+    "url": "http://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD808.html",
+    "likes": 3,
+    "userId": "683836ea99fb2ac533ace4ab"
 }
